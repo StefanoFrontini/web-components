@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web component example</title>
+  </head>
+  <style>
+    :root {
+      --backgroundColor: lightgrey;
+      --cool-font-bold: 700;
+    }
+    h3 {
+      color: grey;
+    }
+    #change {
+      cursor: pointer;
+      background: darkorchid;
+      color: #fff;
+      border: 0;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-bottom: 10px;
+    }
+    user-card {
+      /* --backgroundColor: orange; */
+      /* background: orange; */
+      /* color: blue; */
+      --backgroundColor: yellow;
+    }
+    user-card::part(header) {
+      height: 5rem;
+    }
+  </style>
+  <body>
+    <h3>Outside web component</h3>
+    <button id="change">Change Name</button>
+    <user-card
+      id="first-card"
+      name="John Doe"
+      avatar="https://randomuser.me/api/portraits/men/1.jpg"
+    >
+      <div slot="email">johndow@gmail.com</div>
+      <div slot="phone">555-555-555</div>
+      <p>And this is the rest. <b>Also in bold</b></p>
+    </user-card>
+    <user-card
+      name="Jane Doe"
+      avatar="https://randomuser.me/api/portraits/women/1.jpg"
+    >
+      <div slot="email">janedow@gmail.com</div>
+      <div slot="phone">333-333-333</div>
+      <p>And this is the rest. <b>Also in bold</b></p>
+    </user-card>
+    <section>
+      <h3>Outside web component</h3>
+    </section>
+
+    <script src="userCard.js"></script>
+  </body>
+  <script>
+    document.querySelector("#change").addEventListener("click", () => {
+      const firstCardValue = document
+        .querySelector("#first-card")
+        .getAttribute("name");
+      document
+        .querySelector("#first-card")
+        .setAttribute(
+          "name",
+          firstCardValue === "John Doe" ? "Bob Smith" : "John Doe"
+        );
+    });
+  </script>
+</html>

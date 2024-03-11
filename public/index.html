@@ -25,35 +25,38 @@
     user-card {
       /* --backgroundColor: orange; */
       /* background: orange; */
-      /* color: blue; */
-      --backgroundColor: yellow;
+      color: blue;
     }
     user-card::part(header) {
       height: 5rem;
     }
   </style>
   <body>
-    <h3>Outside web component</h3>
-    <button id="change">Change Name</button>
-    <user-card
-      id="first-card"
-      name="John Doe"
-      avatar="https://randomuser.me/api/portraits/men/1.jpg"
-    >
-      <div slot="email">johndow@gmail.com</div>
-      <div slot="phone">555-555-555</div>
-      <p>And this is the rest. <b>Also in bold</b></p>
-    </user-card>
-    <user-card
-      name="Jane Doe"
-      avatar="https://randomuser.me/api/portraits/women/1.jpg"
-    >
-      <div slot="email">janedow@gmail.com</div>
-      <div slot="phone">333-333-333</div>
-      <p>And this is the rest. <b>Also in bold</b></p>
-    </user-card>
     <section>
-      <h3>Outside web component</h3>
+      <h3>h3 outside web component</h3>
+      <button id="change">Change Name</button>
+    </section>
+    <section>
+      <user-card
+        id="first-card"
+        name="John Doe"
+        avatar="https://randomuser.me/api/portraits/men/1.jpg"
+      >
+        <p slot="email">johndow@gmail.com</p>
+        <p slot="phone">555-555-555</p>
+        <p>And this is the rest. <b>Also in bold</b></p>
+      </user-card>
+      <user-card
+        name="Jane Doe"
+        avatar="https://randomuser.me/api/portraits/women/1.jpg"
+      >
+        <p slot="email">janedow@gmail.com</p>
+        <p slot="phone">333-333-333</p>
+        <p>And this is the rest. <b>Also in bold</b></p>
+      </user-card>
+    </section>
+    <section>
+      <h3>h3 outside web component</h3>
     </section>
 
     <script src="userCard.js"></script>
